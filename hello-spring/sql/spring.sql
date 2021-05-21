@@ -53,4 +53,13 @@ select
 	*
 from
 	member;
+    
+update
+    member
+set
+    password = '$2a$10$HAH48YPdVIwAnViiLhMEmerUCGVXLfVGt1gLdGJiT0UkiWX9EMuqi'
+where
+    id = 'honggd';
+    
+commit;
 		
