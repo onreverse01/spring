@@ -27,4 +27,31 @@
 		<!-- typehandler 생략 가능 : @MappedType, @MappedJdbcType 어노테이션 지정한 경우 -->
 		<result column="lang" property="lang" typeHandler="stringArrayTypehandler"/>
 	</resultMap>
+	
+	<select id="selectOneDev" resultMap="devVoMap">
+		select
+			*
+		from
+			dev
+		where
+			no = #{no}
+	</select>
+	<update id="updateDev">
+		update
+			dev
+		set
+			name = #{name},
+			email = #{email},
+			gender = #{gender},
+			lang = #{lang, typeHandler = stringArrayTypeHandler}
+		where
+			no = #{no}
+	</update>
+	
+	<delete id="deleteDev">
+		delete from
+			dev
+		where
+			no = #{no}
+	</delete>
 </mapper>

@@ -35,26 +35,35 @@
 			</c:forEach>
 		</td>
 		<td>
-			<button class="btn btn-outline-secondary" onclick="updateDev();" data-no="${dev.no};">수정</button>
-			<button class="btn btn-outline-danger" onclick="deleteDev();" data-no="${dev.no};">삭제</button>
+			<button class="btn btn-outline-secondary" onclick="updateDev(this);" data-no="${dev.no};">수정</button>
+			<button class="btn btn-outline-danger" onclick="deleteDev(this);" data-no="${dev.no};">삭제</button>
 		</td>
 	</tr>
 	</c:forEach>
 	</c:if>
 </table>
+<form
+	name="devDelFrm"
+	action="${pageContext.request.contextPath}/demo/deleteDev.do" 
+	method="POST">
+	<input type="hidden" name="no" value="" />
+</form>
 <script>
-function updateDev(id){
-
+function updateDev(btn){
 	//GET /demo/updateDev?no=123 ---> devUpdateForm.jsp
-	//POST /demo/updateDev.do
-	var $devFrm = $("devFrm")
-	$devFrm
-		.attr("action", `${pageContext.request.contextPath}/demo/updateDev?\${no}.do`)
-		.attr("method", "POST")
-		.submit();
+	//POST /demo/updateDev.do ---> redirect:/demo/devList.do
+	var no = $(btn).data("no");
+	//console.log(btn, no);
+	location.href = `${pageContext.request.contextPath}/demo/updateDev.do?no=${no}`;
 }
 function deleteDev(){
-	//POST /demo/deleteDev.do
+	//POST /demo/deleteDev.do ---> redirect:/demo/devList.do
+	var no = $(btn).data("no");
+	if(confirm(no + "번 개발자 정보를 정말 삭제하시겠습니까?")){
+		var $frm = $(document.devDelFrm);
+		$frm.find("[name=no]").val(no);
+		$frm.submit();
+	}
 }
 </script>
 

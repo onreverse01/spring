@@ -28,5 +28,21 @@ public class DemoDaoImpl implements DemoDao {
 	public List<Dev> selectDevList() {
 		return session.selectList("demo.selectDevList");
 	}
+
+	@Override
+	public Dev selectOneDev(int no) {
+		return session.selectOne("demo.selectOneDev", no);
+	}
+
+	@Override
+	public int updateDev(Dev dev) {
+		return session.update("demo.updateDev", dev);
+	}
+
+	@Override
+	public int deleteDev(int no) {
+		return session.delete("demo.deleteDev", no);
+	}
+	
 	
 }
