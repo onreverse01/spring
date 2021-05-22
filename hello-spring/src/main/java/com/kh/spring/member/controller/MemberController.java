@@ -203,4 +203,12 @@ public class MemberController {
 //		return "member/memberDetail";
 		return mav;
 	}
+	
+	@PostMapping("/memberUpdate.do")
+	public String memberUpdate(Member member) {
+		return "redirect:/";
+		
+	}
+	
+	
 }
