@@ -62,4 +62,15 @@ where
     id = 'honggd';
     
 commit;
-		
+
+--memo테이블 생성
+create table memo(
+    no number,
+    memo varchar2(2000),
+    reg_date date default sysdate,
+    constraint pk_memo_no primary key(no)
+);
+
+create sequence seq_memo_no;
+
+
