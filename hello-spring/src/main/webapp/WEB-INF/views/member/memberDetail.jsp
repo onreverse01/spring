@@ -21,9 +21,9 @@ div#update-container input, div#update-container select {margin-bottom:10px;}
 	<form name="memberUpdateFrm" action="${pageContext.request.contextPath}/member/memberUpdate.do" method="post">
 		<input type="text" class="form-control" placeholder="아이디 (4글자이상)" name="id" id="id" value="${loginMember.id}" readonly required/>
 		<input type="text" class="form-control" placeholder="이름" name="name" id="name" value="${loginMember.name}" required/>
-		<input type="date" class="form-control" placeholder="생일" name="date" id="date" value="${loginMember.birthday}"/>
+		<input type="date" class="form-control" placeholder="생일" name="birthday" id="date" value="${loginMember.birthday}"/>
 		<input type="email" class="form-control" placeholder="이메일" name="email" id="email" value="${loginMember.email}" required/>
-		<input type="tel" class="form-control" placeholder="전화번호 (예:01012345678)" name="phone" id="phone" value="${loginMember.phone}" maxlength="11" required/>
+		<input type="tel" class="form-control" placeholder="전화번호 (예:01012345678)" name="phone" id="phone" maxlength="11" value="${loginMember.phone}" required/>
 		<input type="text" class="form-control" placeholder="주소" name="address" id="address" value="${loginMember.address}"/>
 		<select class="form-control" name="gender" required>
 		  <option value="" disabled selected>성별</option>

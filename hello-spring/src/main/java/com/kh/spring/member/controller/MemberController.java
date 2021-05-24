@@ -212,12 +212,13 @@ public class MemberController {
 	@PostMapping("/memberUpdate.do")
 	public ModelAndView memberUpdate(
 				@ModelAttribute Member member, 
-				@SessionAttribute("loginMember") Member loginMember,
+				@ModelAttribute("loginMember") Member loginMember,
 				ModelAndView mav, 
 				//RedirectAttributes redirectAttr, 
 				HttpServletRequest request
 			) {
-		log.info("수정요청 = {}", member);
+		log.info("member = {}", member);
+		log.info("loginMember = {}", loginMember);
 		
 		try {
 			//1. 업무로직
@@ -227,7 +228,7 @@ public class MemberController {
 //			mav.setViewName("redirect:/member/memberDetail.do");
 			
 			//리다이렉트시 자동생성되는 queryString방지
-			RedirectView view = new RedirectView("/member/memberDetail.do");
+			RedirectView view = new RedirectView(request.getContextPath() + "/member/memberDetail.do");
 			view.setExposeModelAttributes(false);
 			mav.setView(view);
 			
