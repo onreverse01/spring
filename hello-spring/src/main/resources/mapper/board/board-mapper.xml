@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<select id="selectBoardList" resultMap="boardExtMap">
+		select 
+			b.*,
+			(select count(*) from attachment where board_no = b.no) attach_count 
+		from 
+			board b
+		order by 
+			no desc
+	</select>
+	<resultMap type="boardExt" id="boardExtMap">
+		<result column="attach_count" property="hasAttachment" /><!-- setter이름을 따온것 -->
+	</resultMap>
+</mapper>
