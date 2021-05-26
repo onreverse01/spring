@@ -8,7 +8,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kh.spring.board.model.vo.Attachment;
 import com.kh.spring.board.model.vo.Board;
+import com.kh.spring.board.model.vo.BoardExt;
 
 @Repository
 public class BoardDaoImpl implements BoardDao {
@@ -28,5 +30,37 @@ public class BoardDaoImpl implements BoardDao {
 		RowBounds rowBounds = new RowBounds(offset, limit);
 		return session.selectList("board.selectBoardList", null, rowBounds);
 	}
+
+	@Override
+	public int selectBoardTotalContents() {
+		return session.selectOne("board.selectBoardTotalContents");
+	}
+
+	@Override
+	public int insertBoard(BoardExt board) {
+		return session.insert("board.insertBoard", board);
+	}
+
+	@Override
+	public int insertAttachment(Attachment attach) {
+		return session.insert("board.insertAttachment", attach);
+	}
+
+	@Override
+	public BoardExt selectOneBoard(int no) {
+		return session.selectOne("board.selectOneBoard", no);
+	}
+
+	@Override
+	public List<Attachment> selectAttachList(int boardNo) {
+		return session.selectList("board.selectAttachList", boardNo);
+	}
+
+	@Override
+	public Board selectOneBoardCollection(int no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 }

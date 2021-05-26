@@ -1,25 +1,18 @@
 package com.kh.spring.board.model.vo;
 
-import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
-//@ToString(callSuper = true)
+@ToString(callSuper = true) // mybatis는 기본생성자와 setter를 이용한다.
 @NoArgsConstructor
 public class BoardExt extends Board{
 
-	private boolean hasAttachment;
+	private boolean hasAttachment;	
+	private List<Attachment> attachList;
 
-	public BoardExt(
-			int no, String title, String memberId, 
-			String content, Date regDate, int readCount,
-			boolean hasAttachment) {
-		super(no, title, memberId, content, regDate, readCount);
-		this.hasAttachment = hasAttachment;
-	}
-	
-	
 	
 }

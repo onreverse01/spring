@@ -35,14 +35,17 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-				
+		
+		 <!-- 
+		 	#11. aop처리를 위한 aspectjweaver 추가하기 
+		 	#13. 트랜잭션처리에 필요 의존
+		 -->	
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>	
-		 <!-- #11. aop처리를 위한 aspectjweaver 추가하기 -->
 	    <dependency>
 	        <groupId>org.aspectj</groupId>
 	        <artifactId>aspectjweaver</artifactId>

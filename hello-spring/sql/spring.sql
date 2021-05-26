@@ -209,3 +209,15 @@ select
 			board b
 		order by 
 			no desc;
+            
+select * from board order by no desc;
+select * from attachment;
+
+select
+    *
+from
+    board b
+    left join
+    attachment a
+    on b.no = a.board_no
+where b.no = 62;
