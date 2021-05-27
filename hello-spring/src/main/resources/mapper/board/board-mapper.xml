@@ -77,7 +77,7 @@
 	</select>
 	<resultMap type="attachment" id="attachVoMap">
 		<!-- <result column="status" property="status" typeHandler="booleanYnTypeHandler"/> -->
-		<result column="status" property="status" javaType="boolean" jdbcType="CHAR" />
+		<result column="status" property="status" javaType="boolean" jdbcType="CHAR"/>
 	</resultMap>
 	<select id="selectOneBoardCollection" resultMap="boardCollectionMap">
 		select
@@ -109,8 +109,18 @@
 			<result column="board_no" property="boardNo"/>
 			<result column="original_filename" property="originalFilename"/>
 			<result column="renamed_filename" property="renamedFilename"/>
+			<result column="upload_date" property="uploadDate"/>
 			<result column="download_count" property="downloadCount"/>
 			<result column="status" property="status" typeHandler="booleanYnTypeHandler"/>
 		</collection>
 	</resultMap>
+	
+	<select id="selectOneAttachment" resultMap="attachVoMap">
+		select
+			*
+		from
+			attachment
+		where
+			no = #{no}
+	</select>
 </mapper>

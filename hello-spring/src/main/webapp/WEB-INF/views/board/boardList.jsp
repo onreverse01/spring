@@ -6,6 +6,10 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="게시판" name="title"/>
 </jsp:include>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <style>
 /*글쓰기버튼*/
 input#btn-add{float:right; margin: 0 0 15px;}
@@ -25,9 +29,29 @@ $(()=>{
 		var no = $tr.data("no");
 		location.href = "${pageContext.request.contextPath}/board/boardDetail.do?no=" + no;
 	});
+	
+    $( "#searchTitle" ).autocomplete({
+      source: function(request, response){
+		  //console.log(request);
+		  //console.log(response);
+		  //response([{label:'a', value:'a'}, {label:'b', value:'b'}]);
+	  
+	  	//사용자입력값전달 ajax요청 -> success
+	  },
+	  select: function(event, selected){
+		  console.log(event);
+		  console.log(selected);
+		  
+		  $("h1.selected").html(selected.item.label);
+	  },
+	  focus: function(event, focused){
+		  return false;
+	  }
+    });
 });
 </script>
 <section id="board-container" class="container">
+	<input type="search" placeholder="제목 검색..." id="searchTitle" class="form-control col-sm-3 d-inline"/>
 	<input type="button" value="글쓰기" id="btn-add" class="btn btn-outline-success" onclick="goBoardForm();"/>
 	<table id="tbl-board" class="table table-striped table-hover">
 		<tr>
