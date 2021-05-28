@@ -47,6 +47,7 @@
 			<exclude-mapping path="/member/memberEnroll.do"/>
 			<exclude-mapping path="/member/checkIdDuplcate*.do"/>
 			<exclude-mapping path="/board/boardList.do"/>
+			<exclude-mapping path="/board/searchTitle.do"/>
 			<beans:bean
 					id="loginInterceptor"
 					class="com.kh.spring.common.interceptor.LoginInterceptor"/>

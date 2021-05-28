@@ -242,4 +242,21 @@ public class BoardController {
 		}
 		return resource;
 	}
+	
+	@GetMapping("/searchTitle.do")
+	@ResponseBody
+	public Map<String, Object> searchTitle(@RequestParam String searchTitle){
+		log.debug("searchTitle = {}", searchTitle);
+		
+		//1. 업무로직 : 검색어로 board 조회
+		List<Board> list = boardService.searchTitle(searchTitle);
+		log.debug("list = {}", list);
+		
+		//2. map에 검색어 담아서 전송
+		Map<String, Object> map = new HashMap<>();
+		map.put("list", list);
+		map.put("searchTitle", searchTitle);
+		
+		return map;
+	}
 }
