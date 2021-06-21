@@ -55,7 +55,19 @@
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/demo/devList.do">Dev 목록</a>
                         </div>
 				    </li>
+				    <!-- WebSocket -->
+				     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Demo
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/ws/websocket.do">Websocket</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/ws/sockjs.do">Sock.js</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/ws/stomp.do">Stomp</a>
+                        </div>
+				    </li>
 				    <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/memo/memo.do">Memo(AOP)</a></li>
+				    <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/menu/menu.do">Menu(REST)</a></li>
 			    </ul>
 			    <c:if test="${loginMember == null}">
  				<%--로그인 이전--%>
